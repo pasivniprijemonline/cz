@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16836151966"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16836151966');
+</script>
+<!-- Event snippet for Serach-cz conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16836151966/uVMkCM7wt58aEJ6Vjdw-',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram pro TikTok</title>
@@ -200,7 +226,7 @@ body {
         var gclidParam = urlParams.get('gclid');
 
         // Формируем новую ссылку с параметрами
-        var newOnClick = "return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2?" + "utm_term=" + keywordParam + "&gclid=" + gclidParam + "&cid=" + cid + "')";
+        var newOnClick = "return gtag_report_conversion('https://antidotes-polytechnics.click/mbq8rXcY?" + "utm_term=" + keywordParam + "&gclid=" + gclidParam + "&cid=" + cid + "')";
 
         // Заменяем текущее значение атрибута onclick новым
         button.setAttribute('onclick', newOnClick);
