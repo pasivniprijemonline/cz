@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram pro TikTok</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* Логотип */
+.logo {
+    padding: 10px;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+/* Видео */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Текст под видео */
+.text {
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Кнопка "Перейти в Телеграм" */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #70cafc;
+    color: white;
+    padding: 15px 30px;
+    font-size: 22px;
+    border: 0px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Отступ перед черным блоком */
+.spacer {
+    margin: 40px 0;
+}
+
+/* Чёрный блок */
+.black-block {
+    background-color: #000;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.black-block p {
+    font-size: 30px;
+    max-width: 60%;
+    text-align: left;
+}
+
+.black-block .btn {
+    background-color: white;
+    color: black;
+}
+
+
+/* Футер */
+.footer {
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.footer a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 12px;
+}
+
+.namefot {
+    margin-top: 10px;
+}
+
+
+/* Соцсети */
+.social-icons {
+    display: flex;
+}
+
+.social-icons button {
+    margin: 0 5px;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.social-icons img {
+    width: 70px;
+
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .text {
+        font-size: 17px;
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 22px;
+    }
+
+    .black-block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .black-block p {
+        max-width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+}
+    </style>
+
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      function getCid(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) {
+          const fullCookieValue = parts.pop().split(';').shift();
+          const cidValue = fullCookieValue.split('.')[2] + '.' + fullCookieValue.split('.')[3];
+          return cidValue;
+        }
+        return null;
+      }
+
+      const cid = getCid('_ga');
+
+      // Получаем все кнопки с атрибутом onclick
+      var buttons = document.querySelectorAll('[onclick^="return gtag_report_conversion"]');
+
+      // Перебираем каждую кнопку
+      buttons.forEach(function (button) {
+        // Получаем текущее значение атрибута onclick
+        var currentOnClick = button.getAttribute('onclick');
+
+        // Извлекаем параметры из текущей ссылки
+        var urlParams = new URLSearchParams(window.location.search);
+        var keywordParam = urlParams.get('utm_term');
+        var gclidParam = urlParams.get('gclid');
+
+        // Формируем новую ссылку с параметрами
+        var newOnClick = "return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2?" + "utm_term=" + keywordParam + "&gclid=" + gclidParam + "&cid=" + cid + "')";
+
+        // Заменяем текущее значение атрибута onclick новым
+        button.setAttribute('onclick', newOnClick);
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+    <!-- Логотип -->
+    <div class="logo">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMjIwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNjEuODAwMyAzMS43MTExQzY1LjA1NDkgMzEuNzExMSA2Ni44NTYyIDI5LjY4NTIgNjYuODU2MiAyNy40MzQzQzY2Ljg1NjIgMjIuNDAwNCA1OS41MjgyIDIzLjk5NjUgNTkuNTI4MiAyMS4xMzE3QzU5LjUyODIgMTkuOTY1MyA2MC4zNjc0IDE5LjQxMjggNjEuNDkzMyAxOS40NTM3QzYyLjcyMTQgMTkuNDc0MiA2My40Nzg4IDIwLjIxMDggNjMuNTQwMiAyMS4xNTIxSDY2LjY5MjVDNjYuNTA4MyAxOC41NzM4IDY0LjUwMjMgMTcuMDggNjEuNTc1MSAxNy4wOEM1OC42Mjc1IDE3LjA4IDU2LjUzOTcgMTguNjM1MiA1Ni41Mzk3IDIxLjIxMzVDNTYuNTE5MiAyNi4zOTA3IDYzLjg4ODIgMjQuNTI4NSA2My44ODgyIDI3LjYxODVDNjMuODg4MiAyOC42NDE2IDYzLjA4OTkgMjkuMzU3OCA2MS43Mzg5IDI5LjM1NzhDNjAuNDA4NCAyOS4zNTc4IDU5LjY1MSAyOC42MDA3IDU5LjU2OTEgMjcuNDU0N0g1Ni40OTg3QzU2LjUzOTcgMzAuMTU1OSA1OC44MzIyIDMxLjcxMTEgNjEuODAwMyAzMS43MTExWk03Mi4xOTg3IDM2Ljk3MDFWMjkuOTUxMkM3Mi44OTQ3IDMwLjg3MjEgNzQuMTYzOCAzMS43NTIgNzUuOTQ0NiAzMS43NTJDNzguODUxMyAzMS43NTIgODEuMTIzNCAyOS4zOTg3IDgxLjEyMzQgMjUuODU4NkM4MS4xMjM0IDIyLjMxODUgNzguODUxMyAyMC4wNDcxIDc1Ljk0NDYgMjAuMDQ3MUM3NC4xODQzIDIwLjA0NzEgNzIuODc0MiAyMC45MDY2IDcyLjE5ODcgMjEuODY4M1YyMC4yMzEzSDY5LjMzM1YzNi45NzAxSDcyLjE5ODdaTTc1LjE4NzMgMjkuMjM1QzczLjY1MjEgMjkuMjM1IDcyLjE5ODcgMjguMDQ4MiA3Mi4xOTg3IDI1Ljg5OTZDNzIuMTk4NyAyMy43NTA5IDczLjY1MjEgMjIuNTY0MSA3NS4xODczIDIyLjU2NDFDNzYuNzQyOSAyMi41NjQxIDc4LjE5NjMgMjMuNzEgNzguMTk2MyAyNS44NTg2Qzc4LjE5NjMgMjguMDA3MyA3Ni43NDI5IDI5LjIzNSA3NS4xODczIDI5LjIzNVpNODYuMDc3IDMxLjU2NzhWMjUuOTJDODYuMDc3IDIzLjczMDUgODcuMTAwNSAyMy4wNzU3IDg4Ljc5OTQgMjMuMDc1N0g4OS41NTY4VjIwLjA2NzZDODcuOTgwNiAyMC4wNjc2IDg2Ljc5MzQgMjAuODI0NyA4Ni4wNzcgMjEuOTkxMVYyMC4yMzEzSDgzLjIxMTNWMzEuNTY3OEg4Ni4wNzdaTTk2LjUxNjQgMzEuNzUyQzk5LjgxMiAzMS43NTIgMTAyLjQzMiAyOS40NjAxIDEwMi40MzIgMjUuODk5NkMxMDIuNDMyIDIyLjMxODUgOTkuODczNCAyMC4wNDcxIDk2LjU5ODMgMjAuMDQ3MUM5My4zMjMyIDIwLjA0NzEgOTAuNzY0NSAyMi4zMTg1IDkwLjc2NDUgMjUuODk5NkM5MC43NjQ1IDI5LjQ2MDEgOTMuMjQxMyAzMS43NTIgOTYuNTE2NCAzMS43NTJaTTk2LjUxNjQgMjkuMjU1NUM5NC45ODEyIDI5LjI1NTUgOTMuNjcxMSAyOC4xNTA1IDkzLjY3MTEgMjUuODk5NkM5My42NzExIDIzLjYyODIgOTUuMDQyNiAyMi41NDM2IDk2LjU1NzMgMjIuNTQzNkM5OC4wNzIxIDIyLjU0MzYgOTkuNDg0NCAyMy42MjgyIDk5LjQ4NDQgMjUuODk5NkM5OS40ODQ0IDI4LjE1MDUgOTguMDMxMSAyOS4yNTU1IDk2LjUxNjQgMjkuMjU1NVpNMTA5LjQxMiAzMS43NTJDMTEyLjIzNyAzMS43NTIgMTE0LjE0MSAzMC4xNTU5IDExNC43NTUgMjcuNzQxMkgxMTEuNjY0QzExMS4zMTYgMjguNzY0NCAxMTAuNTc5IDI5LjI5NjQgMTA5LjM5MiAyOS4yOTY0QzEwNy43OTUgMjkuMjk2NCAxMDYuNzMxIDI4LjEwOTYgMTA2LjczMSAyNS44OTk2QzEwNi43MzEgMjMuNjg5NSAxMDcuNzk1IDIyLjQ4MjIgMTA5LjM5MiAyMi40ODIyQzExMC41NzkgMjIuNDgyMiAxMTEuMzM2IDIzLjA5NjEgMTExLjY2NCAyNC4wNTc5SDExNC43NTVDMTE0LjE0MSAyMS41MjA1IDExMi4yMzcgMjAuMDQ3MSAxMDkuNDEyIDIwLjA0NzFDMTA2LjEzNyAyMC4wNDcxIDEwMy44MDMgMjIuMzM5IDEwMy44MDMgMjUuODk5NkMxMDMuODAzIDI5LjQ2MDEgMTA2LjEzNyAzMS43NTIgMTA5LjQxMiAzMS43NTJaTTExOS43MjkgMzEuNTY3OFYyNi43Mzg1TDEyMy41NzcgMzEuNTY3OEgxMjcuMzAyTDEyMi4yNjcgMjUuOTJMMTI3LjI2MSAyMC4yMzEzSDEyMy41MzZMMTE5LjcyOSAyNS4wNDAxVjE2LjQyNTJIMTE2Ljg2M1YzMS41Njc4SDExOS43MjlaTTEzMy43NzEgMzEuNzUyQzEzNi41NzUgMzEuNzUyIDEzOC40NTggMzAuMDk0NSAxMzkuMDcyIDI4LjAwNzNIMTM1Ljk4MUMxMzUuNjEzIDI4Ljc2NDQgMTM0LjkzNyAyOS4zNzgzIDEzMy43MDkgMjkuMzc4M0MxMzIuMjc2IDI5LjM3ODMgMTMxLjEzIDI4LjQzNyAxMzAuOTg3IDI2Ljc1OUgxMzkuMjc3QzEzOS4zMzggMjYuMzkwNyAxMzkuMzU5IDI2LjAyMjMgMTM5LjM1OSAyNS42NTRDMTM5LjM1OSAyMi4yNzc2IDEzNy4wNDYgMjAuMDQ3MSAxMzMuNzcxIDIwLjA0NzFDMTMwLjQxNCAyMC4wNDcxIDEyOC4wOCAyMi4zMTg1IDEyOC4wOCAyNS44OTk2QzEyOC4wOCAyOS40NjAxIDEzMC40NzUgMzEuNzUyIDEzMy43NzEgMzEuNzUyWk0xMzYuMzkxIDI0LjgzNTVIMTMxLjAwN0MxMzEuMjMyIDIzLjI4MDMgMTMyLjMxNyAyMi40MDA0IDEzMy42ODkgMjIuNDAwNEMxMzUuMTYzIDIyLjQwMDQgMTM2LjM1IDIzLjM0MTcgMTM2LjM5MSAyNC44MzU1Wk0xNDcuMzIxIDMxLjU2NzhWMjkuMTUzMkgxNDUuOTkxQzE0NS4wOSAyOS4xNTMyIDE0NC43ODMgMjguODI1OCAxNDQuNzgzIDI4LjA2ODZWMjIuNTg0NUgxNDcuMzIxVjIwLjIzMTNIMTQ0Ljc4M1YxNy40Mjc5SDE0MS44OTdWMjAuMjMxM0gxNDAuNTQ2VjIyLjU4NDVIMTQxLjg5N1YyOC4wNDgyQzE0MS44OTcgMzAuNjQ3IDE0My4zNSAzMS41Njc4IDE0NS41MiAzMS41Njc4SDE0Ny4zMjFaTTE1NS45MTkgMzEuNTY3OFYyNS41OTI2SDE1OC41NTlMMTYyLjEgMzEuNTY3OEgxNjMuODJMMTYwLjEzNSAyNS40OTAzQzE2Mi41NTEgMjUuMDQwMSAxNjMuNjU2IDIzLjM4MjYgMTYzLjY1NiAyMS40MTgyQzE2My42NTYgMTkuMDY0OSAxNjIuMSAxNy4yNjQyIDE1OC43ODQgMTcuMjY0MkgxNTQuNDg2VjMxLjU2NzhIMTU1LjkxOVpNMTU4LjgwNSAyNC40MjYySDE1NS45MTlWMTguNDcxNUgxNTguNzg0QzE2MS4yIDE4LjQ3MTUgMTYyLjE4MiAxOS42MTc0IDE2Mi4xODIgMjEuNDE4MkMxNjIuMTgyIDIzLjE1NzUgMTYxLjEzOCAyNC40MjYyIDE1OC44MDUgMjQuNDI2MlpNMTcxLjM5MyAzMS43MzE1QzE3NC41NDYgMzEuNzMxNSAxNzcuMDIzIDI5LjUyMTUgMTc3LjAyMyAyNS45ODE0QzE3Ny4wMjMgMjIuNDIwOCAxNzQuNTg3IDIwLjIzMTMgMTcxLjQzNCAyMC4yMzEzQzE2OC4zMDMgMjAuMjMxMyAxNjUuODQ2IDIyLjQyMDggMTY1Ljg0NiAyNS45ODE0QzE2NS44NDYgMjkuNTIxNSAxNjguMjQxIDMxLjczMTUgMTcxLjM5MyAzMS43MzE1Wk0xNzEuMzkzIDMwLjQ4MzNDMTY5LjI2NSAzMC40ODMzIDE2Ny4zIDI5LjA1MDkgMTY3LjMgMjUuOTgxNEMxNjcuMyAyMi45MTIgMTY5LjI4NSAyMS40Nzk1IDE3MS40MTQgMjEuNDc5NUMxNzMuNTQzIDIxLjQ3OTUgMTc1LjU0OSAyMi45MTIgMTc1LjU0OSAyNS45ODE0QzE3NS41NDkgMjkuMDUwOSAxNzMuNTAyIDMwLjQ4MzMgMTcxLjM5MyAzMC40ODMzWk0xODQuNDEyIDMxLjczMTVDMTg3LjIxNiAzMS43MzE1IDE4OS4wMzggMzAuMTU1OSAxODkuNTUgMjcuOTI1NEgxODguMDE1QzE4Ny42MjYgMjkuNTYyNCAxODYuMjk1IDMwLjUyNDIgMTg0LjQxMiAzMC41MjQyQzE4Mi4yMjIgMzAuNTI0MiAxODAuNDQxIDI5LjAwOTkgMTgwLjQ0MSAyNS45ODE0QzE4MC40NDEgMjIuOTUyOSAxODIuMjIyIDIxLjQ1OTEgMTg0LjQxMiAyMS40NTkxQzE4Ni4yOTUgMjEuNDU5MSAxODcuNjQ2IDIyLjQ0MTMgMTg4LjAxNSAyNC4wMzc0SDE4OS41NUMxODkuMDM4IDIxLjcyNTEgMTg3LjIxNiAyMC4yMzEzIDE4NC40MTIgMjAuMjMxM0MxODEuMjYgMjAuMjMxMyAxNzguOTg4IDIyLjQ0MTMgMTc4Ljk4OCAyNS45ODE0QzE3OC45ODggMjkuNTIxNSAxODEuMjYgMzEuNzMxNSAxODQuNDEyIDMxLjczMTVaTTE5My42MjMgMzEuNTY3OFYyNi41NTQ0TDE5OC4yMjkgMzEuNTY3OEgyMDAuMTczTDE5NC44MzEgMjUuOTYwOUwyMDAuMTMyIDIwLjM5NUgxOTguMTI2TDE5My42MjMgMjUuMzg4VjE2LjQyNTJIMTkyLjE5VjMxLjU2NzhIMTkzLjYyM1pNMjA2Ljg0NiAzMS43MzE1QzIwOS42NTEgMzEuNzMxNSAyMTEuNDUyIDMwLjEzNTQgMjExLjk2NCAyOC4wMjc3SDIxMC40NDlDMjEwLjA0IDI5LjUyMTUgMjA4Ljc1IDMwLjUyNDIgMjA2Ljg0NiAzMC41MjQyQzIwNC43NTkgMzAuNTI0MiAyMDIuOTM3IDI5LjE1MzIgMjAyLjgxNCAyNi41MzM5SDIxMi4wODdDMjEyLjEyOCAyNi4xNDUxIDIxMi4xMjggMjUuODU4NiAyMTIuMTI4IDI1LjQwODRDMjEyLjEyOCAyMi41NjQxIDIxMC4xMjIgMjAuMjMxMyAyMDYuODQ2IDIwLjIzMTNDMjAzLjYzMyAyMC4yMzEzIDIwMS4zNjEgMjIuNDIwOCAyMDEuMzYxIDI1Ljk4MTRDMjAxLjM2MSAyOS41MjE1IDIwMy42NzQgMzEuNzMxNSAyMDYuODQ2IDMxLjczMTVaTTIxMC42NzQgMjUuMzY3NUgyMDIuODE0QzIwMi45NzggMjIuNzY4NyAyMDQuNzU5IDIxLjQ1OTEgMjA2Ljc4NSAyMS40NTkxQzIwOC44NTIgMjEuNDU5MSAyMTAuNzM2IDIyLjc2ODcgMjEwLjY3NCAyNS4zNjc1Wk0yMTkuNjgxIDMxLjU2NzhWMzAuMzRIMjE4LjM3MUMyMTcuMDgxIDMwLjM0IDIxNi42MSAyOS45MTAzIDIxNi42MSAyOC41MzkzVjIxLjYwMjNIMjE5LjY4MVYyMC4zOTVIMjE2LjYxVjE3LjU5MTZIMjE1LjE1N1YyMC4zOTVIMjEzLjYwMVYyMS42MDIzSDIxNS4xNTdWMjguNTM5M0MyMTUuMTU3IDMwLjc2OTggMjE2LjIwMSAzMS41Njc4IDIxOC4xNDYgMzEuNTY3OEgyMTkuNjgxWiIgZmlsbD0iIzMwMzQzQiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIyLjQxODkgMjAuMDYxNEMyMC44NDU3IDIwLjA2MTQgMTkuNTY1MiAxOC43ODEzIDE5LjU2NTIgMTcuMjA4NkMxOS41NjUyIDE1LjYzNTkgMjAuODQ1NyAxNC4zNTU3IDIyLjQxODkgMTQuMzU1N0MyMy45OTI5IDE0LjM1NTcgMjUuMjcyNiAxNS42MzU5IDI1LjI3MjYgMTcuMjA4NkMyNS4yNzI2IDE4Ljc4MTMgMjMuOTkyOSAyMC4wNjE0IDIyLjQxODkgMjAuMDYxNFpNMjIuNDE4OSAxMy4yOTk0QzIwLjI2MjkgMTMuMjk5NCAxOC41MDg1IDE1LjA1MzIgMTguNTA4NSAxNy4yMDg2QzE4LjUwODUgMTkuMzYzOSAyMC4yNjI5IDIxLjExNzcgMjIuNDE4OSAyMS4xMTc3QzI0LjU3NDkgMjEuMTE3NyAyNi4zMjkzIDE5LjM2MzkgMjYuMzI5MyAxNy4yMDg2QzI2LjMyOTMgMTUuMDUzMiAyNC41NzQ5IDEzLjI5OTQgMjIuNDE4OSAxMy4yOTk0WiIgZmlsbD0iIzMwMzQzQiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIyLjQxODkgMTUuNTUzOEMyMi4xMjcxIDE1LjU1MzggMjEuODkwNiAxNS43OTAyIDIxLjg5MDYgMTYuMDgyQzIxLjg5MDYgMTYuMzczNyAyMi4xMjcxIDE2LjYxMDEgMjIuNDE4OSAxNi42MTAxQzIyLjc0OTMgMTYuNjEwMSAyMy4wMTc3IDE2Ljg3OTIgMjMuMDE3NyAxNy4yMDg3QzIzLjAxNzcgMTcuNTAwNCAyMy4yNTUgMTcuNzM3NyAyMy41NDYgMTcuNzM3N0MyMy44Mzc4IDE3LjczNzcgMjQuMDc1MSAxNy41MDA0IDI0LjA3NTEgMTcuMjA4N0MyNC4wNzUxIDE2LjI5NjYgMjMuMzMyMSAxNS41NTM4IDIyLjQxODkgMTUuNTUzOFoiIGZpbGw9IiMzMDM0M0IiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zMC45MDk3IDM5LjM5NTFMMjYuOTQ1NiAzNC41NTI5QzI3LjIwMDYgMzIuNTQ3NiAyNy40MzcxIDMwLjUzMjIgMjcuNjQ3NSAyOC41OTk5TDMwLjI4NzQgMzIuNzI2MUMzMC42OTQyIDMzLjM2NjYgMzAuOTA5NyAzNC4xMDUyIDMwLjkwOTcgMzQuODYyMlYzOS4zOTUxWk0yNC42MjE5IDM2LjQwMzFIMjIuOTQ4MVYyNy4zNTE2QzIyLjk0ODEgMjcuMDU5OCAyMi43MTE2IDI2LjgyMzQgMjIuNDE4OSAyNi44MjM0QzIyLjEyNzkgMjYuODIzNCAyMS44OTA2IDI3LjA1OTggMjEuODkwNiAyNy4zNTE2VjM2LjQwMzFIMjAuMjE3NkMxOS42MzY1IDM2LjQwMzEgMTkuMTQxNyAzNS45NjcxIDE5LjA2NzEgMzUuMzkwNEMxOC42OTgxIDMyLjU2MjcgMTguMzYyNyAyOS42ODMgMTguMDg1OSAyNy4wMjM4QzE4LjA4NTkgMjcuMDA0NSAxOC4wODM0IDI2Ljk4NDQgMTguMDggMjYuOTY1MUMxNy42MDk2IDIyLjQyOTcgMTcuMzExMSAxOC41Mzk5IDE3LjMxMTEgMTYuNjQ2MUMxNy4zMTExIDE0LjU5OTcgMTcuNzYwNSAxMi43MDE3IDE4LjY0NzggMTAuOTc2NUgyMi45ODMzQzIzLjI3NTEgMTAuOTc2NSAyMy41MTE2IDEwLjc0IDIzLjUxMTYgMTAuNDQ3NUMyMy41MTE2IDEwLjE1NTcgMjMuMjc1MSA5LjkxOTMxIDIyLjk4MzMgOS45MTkzMUgxOS4yNjA4QzE5LjQ4MzkgOS41NzQ3NiAxOS43MjYyIDkuMjM3NzUgMTkuOTg3IDguOTA5MTNDMjAuOTY1NiA3LjY3ODQ1IDIxLjk1NTIgNi45MDQ2NyAyMi40MTg5IDYuNTc1MjFDMjIuOTk1OSA2Ljk4NTE1IDI0LjM4NDYgOC4wODY3MiAyNS41Njg3IDkuOTE5MzFIMjUuMjM3NEMyNC45NDU2IDkuOTE5MzEgMjQuNzA5MSAxMC4xNTU3IDI0LjcwOTEgMTAuNDQ3NUMyNC43MDkxIDEwLjc0IDI0Ljk0NTYgMTAuOTc2NSAyNS4yMzc0IDEwLjk3NjVIMjYuMTc5MkMyNi45NTMyIDEyLjQ4MDQgMjcuNTI3NiAxNC4zNjU4IDI3LjUyNzYgMTYuNjQ2MUMyNy41Mjc2IDE4LjUzOTkgMjcuMjI5MSAyMi40Mjk3IDI2Ljc1ODYgMjYuOTY1MUMyNi43NTUzIDI2Ljk4NDQgMjYuNzUzNiAyNy4wMDM3IDI2Ljc1MjggMjcuMDIzOEMyNi40NzYgMjkuNjgzIDI2LjE0MDYgMzIuNTYyNyAyNS43NzI1IDM1LjM5MDRDMjUuNjk3IDM1Ljk2NzEgMjUuMjAyMiAzNi40MDMxIDI0LjYyMTkgMzYuNDAzMVpNMTMuOTI5IDM0Ljg2M0MxMy45MjkgMzQuMTA1MiAxNC4xNDQ1IDMzLjM2NjYgMTQuNTUxMyAzMi43MjdMMTcuMTkyIDI4LjU5OTlDMTcuNDAxNiAzMC41MzM5IDE3LjYzODkgMzIuNTQ3NiAxNy44OTMgMzQuNTUyOUwxMy45MjkgMzkuMzk1MVYzNC44NjNaTTMxLjE3OCAzMi4xNTc3TDI3LjgyNTMgMjYuOTE4MkMyOC4yODk5IDIyLjQwOTYgMjguNTg0MyAxOC41NDQ5IDI4LjU4NDMgMTYuNjQ1M0MyOC41ODQzIDEyLjcwODQgMjYuOTg4NCA5Ljg4ODMgMjUuNjUwOSA4LjIxNDk5QzI0LjE5ODQgNi40MDA4NCAyMi43NTE4IDUuNTIyMjYgMjIuNjkxNSA1LjQ4NjIyQzIyLjUyMzcgNS4zODU2MiAyMi4zMTQ5IDUuMzg1NjIgMjIuMTQ3MiA1LjQ4NjIyQzIyLjA4NjggNS41MjIyNiAyMC42NDAzIDYuNDAwODQgMTkuMTg4NyA4LjIxNDk5QzE3Ljg1MDMgOS44ODgzIDE2LjI1NDQgMTIuNzA4NCAxNi4yNTQ0IDE2LjY0NTNDMTYuMjU0NCAxOC41NDQ5IDE2LjU0ODggMjIuNDA5NiAxNy4wMTM0IDI2LjkxODJMMTMuNjU5OCAzMi4xNTg2QzEzLjE0NDkgMzIuOTY4NCAxMi44NzI0IDMzLjkwMzIgMTIuODcyNCAzNC44NjNWNDAuODc2NEMxMi44NzI0IDQxLjA5OTQgMTMuMDEyNCA0MS4yOTgxIDEzLjIyMzggNDEuMzczNUMxMy4yODE2IDQxLjM5MzYgMTMuMzQxMiA0MS40MDQ1IDEzLjQwMDcgNDEuNDA0NUMxMy41NTY3IDQxLjQwNDUgMTMuNzA3NiA0MS4zMzU4IDEzLjgwOTkgNDEuMjEwOUwxOC4xMTY5IDM1Ljk0OTVDMTguNDE1NSAzNi44MzQ4IDE5LjI1NDEgMzcuNDYxIDIwLjIxNzYgMzcuNDYxSDIxLjg5MDZWNDAuODc3MkMyMS44OTA2IDQxLjE2OSAyMi4xMjc5IDQxLjQwNTQgMjIuNDE4OSA0MS40MDU0QzIyLjcxMTYgNDEuNDA1NCAyMi45NDgxIDQxLjE2OSAyMi45NDgxIDQwLjg3NzJWMzcuNDYxSDI0LjYyMTlDMjUuNTg0NiAzNy40NjEgMjYuNDIzMiAzNi44MzQ4IDI2LjcyMTcgMzUuOTQ5NUwzMS4wMjg4IDQxLjIxMDlDMzEuMTMxOSA0MS4zMzU4IDMxLjI4MjggNDEuNDA0NSAzMS40MzggNDEuNDA0NUMzMS40OTc1IDQxLjQwNDUgMzEuNTU3MSA0MS4zOTM2IDMxLjYxNTggNDEuMzczNUMzMS44MjU0IDQxLjI5ODEgMzEuOTY2MyA0MS4wOTk0IDMxLjk2NjMgNDAuODc2NFYzNC44NjNDMzEuOTY2MyAzMy45MDMyIDMxLjY5MzggMzIuOTY4NCAzMS4xNzggMzIuMTU3N1oiIGZpbGw9IiMzMDM0M0IiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMi40MTg5IDUwQzIxLjUzMzQgNTAgMjAuNjQ3OCA0OS43NzI4IDE5Ljg1NzkgNDkuMzE5M0wyLjU3NDQ4IDM5LjM3NzVDMC45ODYxODQgMzguNDY0NiAwIDM2Ljc1OTQgMCAzNC45MjY4VjE1LjA3MjZDMCAxMy4yNDA4IDAuOTg2MTg0IDExLjUzNTcgMi41NzQ0OCAxMC42MjE5TDE5Ljg1NzkgMC42ODA5MzVDMjEuNDM3OCAtMC4yMjY5NzggMjMuNDAwMSAtMC4yMjY5NzggMjQuOTggMC42ODA5MzVMNDIuMjYzNCAxMC42MjE5QzQzLjg1MTYgMTEuNTM1NyA0NC44Mzc4IDEzLjI0MDggNDQuODM3OCAxNS4wNzI2VjM0LjkyNzZDNDQuODM3OCAzNi43NjAyIDQzLjg1MTYgMzguNDY1NCA0Mi4yNjM0IDM5LjM3ODNMMjQuOTggNDkuMzE5M0MyNC4xOSA0OS43NzI4IDIzLjMwNTMgNTAgMjIuNDE4OSA1MFpNMjIuNDE4OSAxLjE3MzA0QzIxLjczNjMgMS4xNzMwNCAyMS4wNTI4IDEuMzQ4MjUgMjAuNDQ0IDEuNjk4NjdMMy4xNjA2NSAxMS42Mzk2QzEuOTM2MzEgMTIuMzQ0NiAxLjE3NTcxIDEzLjY2IDEuMTc1NzEgMTUuMDcyNlYzNC45Mjc2QzEuMTc1NzEgMzYuMzQxMSAxLjkzNjMxIDM3LjY1NTYgMy4xNjA2NSAzOC4zNjA2TDIwLjQ0NDkgNDguMzAxNUMyMS42NjI1IDQ5LjAwMjQgMjMuMTc3IDQ5LjAwMTUgMjQuMzk1NSA0OC4zMDE1TDQxLjY3ODkgMzguMzYwNkM0Mi45MDMyIDM3LjY1NTYgNDMuNjYzOCAzNi4zNDExIDQzLjY2MzggMzQuOTI3NlYxNS4wNzI2QzQzLjY2MzggMTMuNjYgNDIuOTAzMiAxMi4zNDQ2IDQxLjY3ODkgMTEuNjM5NkwyNC4zOTQ2IDEuNjk4NjdDMjMuNzg1IDEuMzQ4MjUgMjMuMTAxNSAxLjE3MzA0IDIyLjQxODkgMS4xNzMwNFoiIGZpbGw9IiMzMDM0M0IiLz4KPC9zdmc+Cg==" alt="Логотип">
+    </div>
+
+    <!-- Видео -->
+    <div class="video-container">
+        <video width="640" height="480" autoplay muted loop>
+          <source src="gifka.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Текст под видео -->
+    <div class="text">
+        Telegram pro TikTok - sledujte videa a vydělejte 350 forintů za video.<br> <br>
+        Zaregistrujte se do služby Telegram a klikněte na tlačítko „Start“.
+    </div>
+
+    <!-- Кнопка -->
+    <button onclick="return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2')" class="btn">
+        <img src="tg.png" alt="Telegram"> Přejít na Telegram
+    </button>
+
+    <!-- Отступ перед черным блоком -->
+    <div class="spacer"></div>
+
+    <!-- Чёрный блок -->
+    <div class="black-block">
+        <p>Jsme nezávislá organizace, která hodnotí kvalitu videoobsahu.</p>
+        <button onclick="return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2')" class="btn">
+            <img src="tg.png" alt="Telegram"> Přejít na Telegram
+        </button>
+    </div>
+
+    <!-- Футер -->
+    <div class="footer">
+      
+        <div class="social-icons">
+          <button onclick="return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2')"><img src="https://ak02-promo-cdn.slidely.com/images/promoVideos/homepage/partners/x2/meta.png/1676879511" alt="LinkedIn"></button>
+            <button onclick="return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2')"><img src="https://ak01-promo-cdn.slidely.com/images/promoVideos/homepage/partners/x2/youtube.png/1658230001" alt="Facebook"></button>
+            <button onclick="return gtag_report_conversion('https://iranianbloodstream.click/W4FdHzf2')"><img src="https://ak04-promo-cdn.slidely.com/images/promoVideos/homepage/partners/x2/instagram.png/1658230001" alt="Instagram"></button>
+            
+        </div>
+
+        <div class="namefot">
+          ©2025 Sprocket Rocket, Inc. All rights reserved.  <br>
+          <a href="policy.html">Zásady ochrany soukromí</a> <br>
+          <a href="disclaimer.html">Odmítnutí odpovědnosti</a>
+      </div>
+    </div>
+
+</body>
+</html>
